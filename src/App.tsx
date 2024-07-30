@@ -1,11 +1,16 @@
 import './global.css'
 
-import React from 'react'
+import { Helmet, HelmetProvider } from 'react-helmet-async'
+import { RouterProvider } from 'react-router-dom'
+
+import { router } from './routes'
 
 export function App() {
   return (
-    <div className="flex h-screen items-center justify-center">
-      <h1>hello word</h1>
-    </div>
+    <HelmetProvider>
+      <Helmet titleTemplate="%s | pizza.shop" />
+
+      <RouterProvider router={router} />
+    </HelmetProvider>
   )
 }
